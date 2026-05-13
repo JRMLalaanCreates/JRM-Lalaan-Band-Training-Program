@@ -570,18 +570,41 @@
   .lesson-body h4:first-child { margin-top: 0; }
 
   .topics-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ── TOPIC CHIPS — uniform style, colored by instrument track ── */
   .topic-chip {
-    background: var(--bg2);
-    border: 1px solid var(--border);
     border-radius: 5px; padding: 4px 10px;
-    font-size: 12px; color: var(--text-mid);
+    font-size: 12px; font-weight: 600;
+    border: 1px solid;
   }
-  .topic-chip.highlight {
-    background: #EEF3FC;
-    border-color: #B8CCED;
-    color: var(--ps-blue);
-    font-weight: 600;
+
+  /* Joint (blue) */
+  [data-track="joint"] .topic-chip {
+    background: #EEF3FC; border-color: #B8CCED; color: var(--joint);
   }
+  /* Piano (violet) */
+  [data-track="piano"] .topic-chip {
+    background: #F0ECF9; border-color: #C8B8F0; color: var(--piano);
+  }
+  /* Acoustic (green) */
+  [data-track="acoustic"] .topic-chip {
+    background: #E8F7F2; border-color: #9FD9C0; color: var(--acoustic);
+  }
+  /* Electric (red) */
+  [data-track="electric"] .topic-chip {
+    background: #FDEEEE; border-color: #F0B8B8; color: var(--electric);
+  }
+  /* Bass (orange) */
+  [data-track="bass"] .topic-chip {
+    background: #FDF3E8; border-color: #F0C898; color: var(--bass);
+  }
+  /* Drums (gold) */
+  [data-track="drums"] .topic-chip {
+    background: #FDF8E0; border-color: #E8D060; color: var(--drums);
+  }
+
+  /* Remove the old highlight distinction — all chips are equal now */
+  .topic-chip.highlight { font-weight: 700; }
 
   .activities-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
   .activities-table th {
@@ -849,7 +872,7 @@
   <!-- DARK: Intro -->
   <div class="panel-dark">
     <h2 class="page-title" style="color:#fff;">3-Month Sunday Schedule</h2>
-    <p class="page-desc">Week-by-week breakdown. Each Sunday is 3 hours (1PM–4PM).</p>
+    <p class="page-desc">Week-by-week breakdown. Each Sunday is 3 hours (1PM–4PM). Joint and instrument track sessions may happen the same day.</p>
     <div class="callout"><strong>Session Format (3 hours each) —</strong> The training schedule will be determined by the mentor/trainer based on availability.</div>
     <div class="legend" style="margin-top:16px;">
       <div class="legend-item"><div class="legend-dot" style="background:var(--joint)"></div>Joint Session</div>
@@ -1334,6 +1357,17 @@
 </div>
 
 <script>
+// Auto-assign data-track to schedule lesson blocks that don't have one yet
+document.querySelectorAll('.lesson-block:not([data-track])').forEach(block => {
+  const tag = block.querySelector('.tag');
+  if (tag) {
+    const tracks = ['joint','piano','acoustic','electric','bass','drums'];
+    for (const t of tracks) {
+      if (tag.classList.contains(t)) { block.setAttribute('data-track', t); break; }
+    }
+  }
+});
+
 function showSection(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
