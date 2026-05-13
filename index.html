@@ -27,12 +27,12 @@
     --text-mid:  #3D4466;
     --text-muted:#6B73A0;
 
-    /* Dark blue panel vars */
+    /* Dark blue panel vars — all text now pure white */
     --panel-dark-bg:    #002A6E;
     --panel-dark-bg2:   #003791;
     --panel-dark-border:#1A5BB8;
-    --panel-dark-text:  #E8EEFF;
-    --panel-dark-muted: #91AADD;
+    --panel-dark-text:  #FFFFFF;   /* was #E8EEFF */
+    --panel-dark-muted: #FFFFFF;   /* was #91AADD */
 
     --piano:    #7C5CDB;
     --acoustic: #1E9E71;
@@ -173,17 +173,16 @@
   nav {
     background: var(--ps-blue);
     border-bottom: none;
-    padding: 0 32px;
+    padding: 10px 16px;           /* changed: was 0 32px, now has vertical padding */
     display: flex;
     gap: 6px;
-    overflow-x: auto;
+    flex-wrap: wrap;              /* KEY FIX: allow buttons to wrap */
     position: sticky;
     top: 0;
     z-index: 100;
     justify-content: center;
     box-shadow: 0 4px 20px rgba(0,30,100,0.35);
     align-items: center;
-    min-height: 68px;
   }
 
   nav button {
@@ -197,11 +196,12 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
-    padding: 12px 20px;
+    padding: 10px 14px;           /* slightly tighter than before */
     white-space: nowrap;
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;               /* don't let buttons shrink below their text */
   }
 
   nav button::after {
@@ -302,10 +302,10 @@
     border-left-color: rgba(255,255,255,0.5);
   }
   .panel-dark .sec-heading h2 {
-    color: rgba(255,255,255,0.85);
+    color: #ffffff;
   }
   .panel-dark .sec-heading p {
-    color: var(--panel-dark-muted);
+    color: #ffffff;
   }
 
   /* ── CALLOUT ── */
@@ -323,7 +323,7 @@
     background: rgba(255,255,255,0.07);
     border-color: rgba(255,255,255,0.15);
     border-left-color: rgba(255,255,255,0.5);
-    color: var(--panel-dark-text);
+    color: #ffffff;
   }
   .panel-dark .callout strong {
     color: #fff;
@@ -375,14 +375,14 @@
   .goal-num {
     font-family: 'Orbitron', monospace;
     font-size: 10px; font-weight: 700;
-    letter-spacing: 2px; color: var(--panel-dark-muted);
+    letter-spacing: 2px; color: #ffffff;
     text-transform: uppercase; margin-bottom: 6px;
   }
   .goal-card h3 {
     font-size: 14px; font-weight: 700;
     color: #fff; margin-bottom: 8px;
   }
-  .goal-card p { font-size: 12.5px; color: var(--panel-dark-muted); }
+  .goal-card p { font-size: 12.5px; color: #ffffff; }
 
   /* ── INSTRUMENT GRID ── */
   .instr-grid {
@@ -440,7 +440,7 @@
     width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
   }
 
-  .panel-dark .legend-item { color: var(--panel-dark-muted); }
+  .panel-dark .legend-item { color: #ffffff; }
 
   /* ── MONTH OVERVIEW ── */
   .month-overview {
@@ -677,28 +677,28 @@
     border-color: rgba(255,255,255,0.12);
   }
   .panel-dark .assess-card h3 {
-    border-bottom-color: rgba(255,255,255,0.12);
+    border-bottom-color: rgba(255,255,255,0.2);
   }
   .panel-dark .assess-card ul li {
-    color: var(--panel-dark-muted);
-    border-bottom-color: rgba(255,255,255,0.06);
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.1);
   }
   .panel-dark .assess-card ul li::before {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.7);
   }
 
-  /* Stacked schedule section headings */
-  .schedule-month-header {
-    padding: 48px 48px 32px;
-  }
-
+  /* ── MOBILE ── */
   @media(max-width:700px) {
     header { padding: 28px 16px 20px; }
     .panel-light, .panel-dark { padding: 20px 16px; }
-    .schedule-month-header { padding: 20px 16px 16px; }
-    nav { padding: 0 8px; justify-content: flex-start; min-height: 56px; }
-    nav button { padding: 10px 12px; font-size: 9px; }
+    nav { padding: 8px 10px; gap: 5px; }
+    nav button { padding: 8px 10px; font-size: 9px; letter-spacing: 0.5px; }
     .ps-cluster { display: none; }
+    .church-label { font-size: 9px; letter-spacing: 1.5px; }
+  }
+
+  @media(max-width:400px) {
+    nav button { padding: 7px 8px; font-size: 8px; letter-spacing: 0; }
   }
 </style>
 </head>
@@ -850,7 +850,7 @@
   <div class="panel-dark">
     <h2 class="page-title" style="color:#fff;">3-Month Sunday Schedule</h2>
     <p class="page-desc">Week-by-week breakdown. Each Sunday is 3 hours (1PM–4PM). Joint and instrument track sessions may happen the same day.</p>
-    <div class="callout"><strong>Session Format (3 hours each) —</strong> The training schedule will be determined by the mentor/trainer based on availability. .</div>
+    <div class="callout"><strong>Session Format (3 hours each) —</strong> The training schedule will be determined by the mentor/trainer based on availability.</div>
     <div class="legend" style="margin-top:16px;">
       <div class="legend-item"><div class="legend-dot" style="background:var(--joint)"></div>Joint Session</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--piano)"></div>Piano</div>
@@ -1229,13 +1229,10 @@
 
 <!-- ════════════════════════ WORKPLAN ════════════════════════ -->
 <div id="workplan" class="section">
-  <!-- DARK: header -->
   <div class="panel-dark">
     <h2 class="page-title" style="color:#fff;">Official Workplan Table</h2>
     <p class="page-desc">Formal workplan — Objectives, Activities, Mechanics, Materials, Human Resources, Timetable, Person/s Responsible, and Success Indicators.</p>
   </div>
-
-  <!-- LIGHT: table -->
   <div class="panel-light">
     <div class="workplan-table-wrap">
       <table class="workplan-table">
@@ -1266,7 +1263,7 @@
     <div class="sec-heading"><h2>Registration Assessment</h2><p>Collected at sign-up via Google Forms</p></div>
     <div class="assess-grid">
       <div class="assess-card">
-        <h3 style="color:rgba(255,255,255,0.8)">Registration Form Fields</h3>
+        <h3 style="color:#ffffff;">Registration Form Fields</h3>
         <ul>
           <li>Full Name</li>
           <li>Age (Optional)</li>
@@ -1277,7 +1274,7 @@
         </ul>
       </div>
       <div class="assess-card">
-        <h3 style="color:rgba(255,255,255,0.8)">Skill Grouping</h3>
+        <h3 style="color:#ffffff;">Skill Grouping</h3>
         <ul>
           <li>Beginners: Start from scratch — basics, posture, first notes</li>
           <li>Intermediate: Fast-tracked to Month 1 Week 3+ content</li>
@@ -1312,7 +1309,7 @@
     <div class="sec-heading" style="margin-top:32px;"><h2>Final Assessment — Month 3</h2><p>Criteria for completion and commissioning</p></div>
     <div class="assess-grid">
       <div class="assess-card">
-        <h3 style="color:rgba(255,255,255,0.8)">Completion Criteria</h3>
+        <h3 style="color:#ffffff;">Completion Criteria</h3>
         <ul>
           <li>Attended at least 70% of all Sunday sessions</li>
           <li>Can play their instrument in a full worship song</li>
@@ -1322,7 +1319,7 @@
         </ul>
       </div>
       <div class="assess-card">
-        <h3 style="color:rgba(255,255,255,0.8)">Commissioning Output</h3>
+        <h3 style="color:#ffffff;">Commissioning Output</h3>
         <ul>
           <li>Certificate of Completion issued</li>
           <li>Added to worship team talent pool roster</li>
