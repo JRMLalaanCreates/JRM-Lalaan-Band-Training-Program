@@ -27,12 +27,11 @@
     --text-mid:  #3D4466;
     --text-muted:#6B73A0;
 
-    /* Dark blue panel vars — all text now pure white */
     --panel-dark-bg:    #002A6E;
     --panel-dark-bg2:   #003791;
     --panel-dark-border:#1A5BB8;
-    --panel-dark-text:  #FFFFFF;   /* was #E8EEFF */
-    --panel-dark-muted: #FFFFFF;   /* was #91AADD */
+    --panel-dark-text:  #FFFFFF;
+    --panel-dark-muted: #FFFFFF;
 
     --piano:    #7C5CDB;
     --acoustic: #1E9E71;
@@ -173,10 +172,10 @@
   nav {
     background: var(--ps-blue);
     border-bottom: none;
-    padding: 10px 16px;           /* changed: was 0 32px, now has vertical padding */
+    padding: 10px 16px;
     display: flex;
     gap: 6px;
-    flex-wrap: wrap;              /* KEY FIX: allow buttons to wrap */
+    flex-wrap: wrap;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -196,12 +195,12 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
-    padding: 10px 14px;           /* slightly tighter than before */
+    padding: 10px 14px;
     white-space: nowrap;
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
-    flex-shrink: 0;               /* don't let buttons shrink below their text */
+    flex-shrink: 0;
   }
 
   nav button::after {
@@ -571,39 +570,32 @@
 
   .topics-list { display: flex; flex-wrap: wrap; gap: 6px; }
 
-  /* ── TOPIC CHIPS — uniform style, colored by instrument track ── */
+  /* ── TOPIC CHIPS ── */
   .topic-chip {
     border-radius: 5px; padding: 4px 10px;
     font-size: 12px; font-weight: 600;
     border: 1px solid;
   }
 
-  /* Joint (blue) */
   [data-track="joint"] .topic-chip {
     background: #EEF3FC; border-color: #B8CCED; color: var(--joint);
   }
-  /* Piano (violet) */
   [data-track="piano"] .topic-chip {
     background: #F0ECF9; border-color: #C8B8F0; color: var(--piano);
   }
-  /* Acoustic (green) */
   [data-track="acoustic"] .topic-chip {
     background: #E8F7F2; border-color: #9FD9C0; color: var(--acoustic);
   }
-  /* Electric (red) */
   [data-track="electric"] .topic-chip {
     background: #FDEEEE; border-color: #F0B8B8; color: var(--electric);
   }
-  /* Bass (orange) */
   [data-track="bass"] .topic-chip {
     background: #FDF3E8; border-color: #F0C898; color: var(--bass);
   }
-  /* Drums (gold) */
   [data-track="drums"] .topic-chip {
     background: #FDF8E0; border-color: #E8D060; color: var(--drums);
   }
 
-  /* Remove the old highlight distinction — all chips are equal now */
   .topic-chip.highlight { font-weight: 700; }
 
   .activities-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
@@ -620,6 +612,37 @@
   .activities-table tr:last-child td { border-bottom: none; }
   .activities-table td:first-child { color: var(--text); font-weight: 600; width: 36%; }
   .activities-table td:last-child { color: var(--text-muted); }
+
+  /* ── WEEK DIVIDER (used in Lessons chronological view) ── */
+  .week-group { margin-bottom: 32px; }
+  .week-group-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 12px;
+  }
+  .week-group-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--ps-blue);
+    white-space: nowrap;
+  }
+  .week-group-title {
+    font-size: 13px; font-weight: 600; color: var(--text-mid);
+  }
+  .week-group-line {
+    flex: 1; height: 1px; background: var(--border);
+  }
+  .week-group-month {
+    font-family: 'Orbitron', monospace;
+    font-size: 8px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
 
   /* ── DIVIDER ── */
   .divider {
@@ -694,7 +717,6 @@
     margin-top: 3px; flex-shrink: 0;
   }
 
-  /* Dark panel assess cards */
   .panel-dark .assess-card {
     background: rgba(255,255,255,0.07);
     border-color: rgba(255,255,255,0.12);
@@ -765,7 +787,6 @@
 <!-- ════════════════════════ OVERVIEW ════════════════════════ -->
 <div id="overview" class="section active">
 
-  <!-- DARK: Mission Objectives -->
   <div class="panel-dark">
     <div class="sec-heading"><h2>Mission Objectives</h2><p>What we aim to achieve as a band ministry</p></div>
     <div class="goals-grid">
@@ -798,7 +819,6 @@
 
   <hr class="divider">
 
-  <!-- LIGHT: The Band -->
   <div class="panel-light">
     <div class="sec-heading"><h2>The Band</h2><p>Five instruments, one sound, one purpose</p></div>
     <div class="instr-grid">
@@ -812,7 +832,6 @@
 
   <hr class="divider">
 
-  <!-- DARK: Program Timeline -->
   <div class="panel-dark">
     <div class="sec-heading"><h2>Program Timeline</h2><p>3 months — 3 phases — one team</p></div>
     <div class="legend" style="margin-bottom:24px;">
@@ -869,7 +888,6 @@
 <!-- ════════════════════════ SCHEDULE ════════════════════════ -->
 <div id="schedule" class="section">
 
-  <!-- DARK: Intro -->
   <div class="panel-dark">
     <h2 class="page-title" style="color:#fff;">3-Month Sunday Schedule</h2>
     <p class="page-desc">Week-by-week breakdown. Each Sunday is 3 hours (1PM–4PM). Joint and instrument track sessions may happen the same day.</p>
@@ -1190,10 +1208,9 @@
 <!-- ════════════════════════ LESSONS ════════════════════════ -->
 <div id="lessons" class="section">
 
-  <!-- DARK: header -->
   <div class="panel-dark">
-    <h2 class="page-title" style="color:#fff;">Lesson Plans — Filter by Track</h2>
-    <p class="page-desc">Filter by instrument to view your track, or view All. Joint sessions always appear in every filter.</p>
+    <h2 class="page-title" style="color:#fff;">Lesson Plans — Chronological View</h2>
+    <p class="page-desc">All sessions arranged by week. Filter by instrument track to focus on a specific group — Joint sessions always appear in every filter.</p>
     <div class="lesson-filter">
       <button class="filter-btn active all" onclick="filterLessons('all', this)">All Sessions</button>
       <button class="filter-btn" onclick="filterLessons('joint', this)">Joint</button>
@@ -1205,48 +1222,355 @@
     </div>
   </div>
 
-  <!-- LIGHT: lesson blocks -->
   <div class="panel-light">
     <div id="filter-lessons-container">
-      <!-- Joint -->
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W1</span><span class="lesson-title">Orientation: Welcome to the Band Family</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Welcome & Vision</span><span class="topic-chip">Instrument Demos</span><span class="topic-chip">Registration</span><span class="topic-chip">Worship Culture</span><span class="topic-chip">Opening Prayer</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Musical Alphabet, Notes, Time Signatures & Counting</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Musical Alphabet A–G</span><span class="topic-chip highlight">12 Notes / Chromatic Scale</span><span class="topic-chip highlight">4/4, 3/4, 6/8</span><span class="topic-chip">Metronome</span><span class="topic-chip">Notes on Each Instrument</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Chords, Band Roles & First Songs</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Major vs. Minor Chords</span><span class="topic-chip highlight">Band Roles & Frequency Space</span><span class="topic-chip">Rhythm Section</span><span class="topic-chip">Full Band Jam</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Instrument Basics Deep Dive</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Review & Q&A</span><span class="topic-chip highlight">Extended Instrument Track Time</span><span class="topic-chip">Deeper Technique Per Instrument</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Nashville Number System & Chord Progressions</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Nashville Number System (1–7)</span><span class="topic-chip highlight">1-5-6m-4 Progression</span><span class="topic-chip">Transposition Intro</span><span class="topic-chip">Play in Multiple Keys</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Song Structure, Hand Signals & Dynamics</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Song Parts: Intro/Verse/Chorus/Bridge</span><span class="topic-chip highlight">Band Hand Signals</span><span class="topic-chip">Dynamics</span><span class="topic-chip">Following Worship Leader</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W7</span><span class="lesson-title">Transposition as a Band + Full Song Run</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Transposition</span><span class="topic-chip">Key Changes</span><span class="topic-chip">Song in 2 Keys Together</span><span class="topic-chip">Hand Signal Practice</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W9</span><span class="lesson-title">Listening, Band Communication & Rehearsal Etiquette</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Band Listening</span><span class="topic-chip">Frequency Space</span><span class="topic-chip">Rehearsal Etiquette</span><span class="topic-chip">Worship Mindset</span><span class="topic-chip">Space & Silence</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W10–11</span><span class="lesson-title">Full Band Rehearsals (3 Songs)</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Full Band Run-Throughs</span><span class="topic-chip">Trainer Feedback</span><span class="topic-chip">Transitions & Key Changes</span><span class="topic-chip">Hand Signal Practice</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W12</span><span class="lesson-title">Final Polish & Sound Check Simulation</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Full Set Rehearsal</span><span class="topic-chip">Sound Check Simulation</span><span class="topic-chip">Monitor Basics</span><span class="topic-chip">Stagecraft</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W13</span><span class="lesson-title">✨ Special Number Performance — Live Worship</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Lead Worship Live</span><span class="topic-chip">Trainer Support</span><span class="topic-chip">Post-Performance Debrief</span></div></div></div>
-      <div class="lesson-block" data-track="joint"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W14</span><span class="lesson-title">🕊️ Commissioning & Celebration</span><span class="tag joint">Joint</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Certificates</span><span class="topic-chip">Commissioning Prayer</span><span class="topic-chip">Testimonies</span><span class="topic-chip">Worship Team Handover</span></div></div></div>
-      <!-- Piano -->
-      <div class="lesson-block" data-track="piano"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2-3</span><span class="lesson-title">Piano: Keys, Scales & First Chords</span><span class="tag piano">Piano</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Parts of the Keyboard</span><span class="topic-chip">Finding Middle C</span><span class="topic-chip highlight">C Major Scale + All White Key Scales</span><span class="topic-chip">Major Chord 1-3-5</span><span class="topic-chip">Basic Progressions</span><span class="topic-chip">RH vs LH Roles</span></div></div></div>
-      <div class="lesson-block" data-track="piano"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Piano: Black Keys & Two-Hand Play</span><span class="tag piano">Piano</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Black Key Scales</span><span class="topic-chip">Chord Progressions</span><span class="topic-chip">Two-Hand Coordination</span><span class="topic-chip">Broken Chord Patterns</span></div></div></div>
-      <div class="lesson-block" data-track="piano"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Piano: Inversions, Slash Chords & Extensions</span><span class="tag piano">Piano</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Inversions (1st, 2nd, 3rd)</span><span class="topic-chip highlight">Slash Chords (G/B, C/E)</span><span class="topic-chip">Sus2 & Sus4</span><span class="topic-chip">Add9, Maj7, 6th</span><span class="topic-chip">Voice Leading</span></div></div></div>
-      <div class="lesson-block" data-track="piano"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6-8</span><span class="lesson-title">Piano: Worship Pads, Comping & Full Songs</span><span class="tag piano">Piano</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Worship Pads</span><span class="topic-chip">Sustain Pedal</span><span class="topic-chip">Comping</span><span class="topic-chip">Hand Signals Response</span><span class="topic-chip highlight">Play 2 Full Worship Songs</span></div></div></div>
-      <!-- Acoustic -->
-      <div class="lesson-block" data-track="acoustic"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2-3</span><span class="lesson-title">Acoustic: Open Chords & First Strums</span><span class="tag acoustic">Acoustic</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Parts & Tuning</span><span class="topic-chip highlight">Open Chords G, C, D, E, A</span><span class="topic-chip">Open Minor Chords Em, Am, Dm</span><span class="topic-chip">Basic Down Strumming</span><span class="topic-chip">Chord Transitions</span></div></div></div>
-      <div class="lesson-block" data-track="acoustic"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Acoustic: Strumming Patterns & Rhythm</span><span class="tag acoustic">Acoustic</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Down-Up Patterns</span><span class="topic-chip">Percussive Strums</span><span class="topic-chip">Metronome Play</span></div></div></div>
-      <div class="lesson-block" data-track="acoustic"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Acoustic: Barre Chords & Fingerpicking</span><span class="tag acoustic">Acoustic</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">F Barre Chord</span><span class="topic-chip">Bm Barre Chord</span><span class="topic-chip">Fingerpicking Pattern</span><span class="topic-chip">Capo Introduction</span></div></div></div>
-      <div class="lesson-block" data-track="acoustic"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6-8</span><span class="lesson-title">Acoustic: Capo Mastery & Song Leadership</span><span class="tag acoustic">Acoustic</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Capo Positions</span><span class="topic-chip">Supporting Worship Leader</span><span class="topic-chip highlight">Play Full Songs</span></div></div></div>
-      <!-- Electric -->
-      <div class="lesson-block" data-track="electric"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2-3</span><span class="lesson-title">Electric: Gear Up, Pentatonic & Power Chords</span><span class="tag electric">Electric</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Signal Chain</span><span class="topic-chip highlight">Pentatonic Scale</span><span class="topic-chip">Power Chords</span><span class="topic-chip">Clean vs. Overdrive</span></div></div></div>
-      <div class="lesson-block" data-track="electric"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Electric: Riffs & Rhythm Textures</span><span class="tag electric">Electric</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Simple Worship Riffs</span><span class="topic-chip">Alternate Picking</span><span class="topic-chip">String Bending</span><span class="topic-chip">Delay & Reverb Intro</span></div></div></div>
-      <div class="lesson-block" data-track="electric"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Electric: Lead Concepts & Effects</span><span class="tag electric">Electric</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Lead vs. Rhythm Role</span><span class="topic-chip">Pentatonic Runs</span><span class="topic-chip">Vibrato</span><span class="topic-chip">Effects Pedals Deep Dive</span></div></div></div>
-      <div class="lesson-block" data-track="electric"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6-8</span><span class="lesson-title">Electric: Lead Fills, Ambient Layers & Full Songs</span><span class="tag electric">Electric</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Fills Between Phrases</span><span class="topic-chip">Ambient Swells</span><span class="topic-chip">When Not to Play</span><span class="topic-chip highlight">Full Song Context</span></div></div></div>
-      <!-- Bass -->
-      <div class="lesson-block" data-track="bass"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2-3</span><span class="lesson-title">Bass: Root Notes, Posture & First Lines</span><span class="tag bass">Bass</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Parts & Posture</span><span class="topic-chip highlight">Root Notes</span><span class="topic-chip">Walking Bass</span><span class="topic-chip">Frequency Spectrum</span><span class="topic-chip">Plucking Technique</span></div></div></div>
-      <div class="lesson-block" data-track="bass"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Bass: Groove & Pocket</span><span class="tag bass">Bass</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Syncing with Kick Drum</span><span class="topic-chip">Root-Fifth Pattern</span><span class="topic-chip">Octave Jumps</span></div></div></div>
-      <div class="lesson-block" data-track="bass"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Bass: Groove Patterns & Drum Lock</span><span class="tag bass">Bass</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Locking with Kick</span><span class="topic-chip">Root-3rd-5th Lines</span><span class="topic-chip">Syncopation</span></div></div></div>
-      <div class="lesson-block" data-track="bass"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6-8</span><span class="lesson-title">Bass: Locking the Groove for Worship</span><span class="tag bass">Bass</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Bass & Kick as a Unit</span><span class="topic-chip">Bass Fills</span><span class="topic-chip highlight">Play Full Songs</span></div></div></div>
-      <!-- Drums -->
-      <div class="lesson-block" data-track="drums"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2-3</span><span class="lesson-title">Drums: Kit, Grip & Basic Rock Beat</span><span class="tag drums">Drums</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip">Kit Parts</span><span class="topic-chip">Grip & Posture</span><span class="topic-chip highlight">Basic Rock Beat</span><span class="topic-chip">Rudiments</span><span class="topic-chip">Metronome</span></div></div></div>
-      <div class="lesson-block" data-track="drums"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Drums: Grooves & Hi-Hat Variations</span><span class="tag drums">Drums</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Hi-Hat Patterns 8th & 16th</span><span class="topic-chip">Open Hi-Hat</span><span class="topic-chip">Simple Fills</span><span class="topic-chip">3/4 Waltz</span></div></div></div>
-      <div class="lesson-block" data-track="drums"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Drums: Fills, Crashes & Ride Grooves</span><span class="tag drums">Drums</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">4-Bar Fills</span><span class="topic-chip">Crash Placement</span><span class="topic-chip">Ride Grooves</span><span class="topic-chip">Half-Time Feel</span></div></div></div>
-      <div class="lesson-block" data-track="drums"><div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6-8</span><span class="lesson-title">Drums: Dynamic Control & Worship Sensitivity</span><span class="tag drums">Drums</span></div></div><div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Brushes vs. Sticks vs. Rods</span><span class="topic-chip">Playing Quietly</span><span class="topic-chip">Building Energy</span><span class="topic-chip">Following Worship Leader</span></div></div></div>
-    </div>
+
+      <!-- ══ WEEK 1 ══ -->
+      <div class="week-group" data-week="1">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 1</span>
+          <span class="week-group-title">Orientation Day</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">June 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W1</span><span class="lesson-title">Orientation: Welcome to the Band Family</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Welcome & Vision</span><span class="topic-chip">Instrument Demos</span><span class="topic-chip">Registration</span><span class="topic-chip">Worship Culture</span><span class="topic-chip">Opening Prayer</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 2 ══ -->
+      <div class="week-group" data-week="2">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 2</span>
+          <span class="week-group-title">Musical Alphabet, Notes & Time</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">June 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Musical Alphabet, Notes, Time Signatures & Counting</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Musical Alphabet A–G</span><span class="topic-chip highlight">12 Notes / Chromatic Scale</span><span class="topic-chip highlight">4/4, 3/4, 6/8</span><span class="topic-chip">Metronome</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Piano: Keys, Scales & Finding Middle C</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip">Parts of the Keyboard</span><span class="topic-chip highlight">Finding Middle C</span><span class="topic-chip highlight">C Major Scale</span><span class="topic-chip">White Key Note Names</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Acoustic: String Names & Open Fretboard</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">String Names EADGBE</span><span class="topic-chip">Fretboard Note Map (Open Strings)</span><span class="topic-chip">Tuning Basics</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Electric: Signal Chain & Gear Basics</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Signal Chain</span><span class="topic-chip">Tuner Use</span><span class="topic-chip">String Names (same as acoustic)</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Bass: 4-String Notes & Plucking Technique</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">4-String Notes E-A-D-G</span><span class="topic-chip">Plucking Technique Intro</span><span class="topic-chip">Root Notes on Beats 1 & 3</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W2</span><span class="lesson-title">Drums: Kit Parts, Grip & Counting</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Kit Parts</span><span class="topic-chip">Matched Grip</span><span class="topic-chip">Kick-Snare on 1 & 3 in 4/4</span><span class="topic-chip">Metronome</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 3 ══ -->
+      <div class="week-group" data-week="3">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 3</span>
+          <span class="week-group-title">Chords, Band Roles & First Songs</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">June 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Chords, Band Roles & First Songs</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Major vs. Minor Chords</span><span class="topic-chip highlight">Band Roles & Frequency Space</span><span class="topic-chip">Rhythm Section</span><span class="topic-chip">Full Band Jam</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Piano: Major Chord Construction & First Progressions</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Major Chord 1-3-5</span><span class="topic-chip">C, G, F Chords</span><span class="topic-chip">Basic Chord Progressions</span><span class="topic-chip">RH vs LH Roles</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Acoustic: Open Chords & First Strums</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Open Chords G, C, D, E, A</span><span class="topic-chip">Chord Transitions</span><span class="topic-chip">Basic Down Strumming</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Electric: Pentatonic Scale & Power Chords</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Pentatonic Scale (Minor)</span><span class="topic-chip">Power Chords</span><span class="topic-chip">Clean Tone vs. Overdrive Intro</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Bass: Root Notes & Walking Bass</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Root Notes Over Chord Progressions</span><span class="topic-chip">Basic Walking Bass Line</span><span class="topic-chip">Muting Technique</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W3</span><span class="lesson-title">Drums: Basic Rock Beat</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Basic Rock Beat</span><span class="topic-chip">Hi-Hat 8th Notes</span><span class="topic-chip">Kick-Snare-Hi-Hat Coordination</span><span class="topic-chip">Play with Metronome</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 4 ══ -->
+      <div class="week-group" data-week="4">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 4</span>
+          <span class="week-group-title">Instrument Basics Deep Dive</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">June 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Review & Q&A — Before the Deep Dive</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip">Review Week 3 concepts</span><span class="topic-chip highlight">Extended Instrument Track Time</span><span class="topic-chip">Q&A Before Going Deeper</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Piano: Black Keys & Two-Hand Coordination</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Black Key Scales</span><span class="topic-chip">1-4-5 & 1-5-6m-4 Progressions</span><span class="topic-chip">Two-Hand Coordination</span><span class="topic-chip">Broken Chord Patterns</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Acoustic: Open Minor Chords & Strumming Patterns</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip">Open Minor Chords Em, Am, Dm</span><span class="topic-chip highlight">Down-Up Strumming Patterns</span><span class="topic-chip">Strumming to 4/4, 3/4, 6/8</span><span class="topic-chip">Playing with Metronome</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Electric: Riffs, Alternate Picking & Effects Intro</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Simple Worship Riffs</span><span class="topic-chip">Alternate Picking Drill</span><span class="topic-chip">String Bending Basics</span><span class="topic-chip">Delay & Reverb Intro</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Bass: Root-Fifth Pattern & Groove</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Root-Fifth Bass Pattern</span><span class="topic-chip">Octave Jumps</span><span class="topic-chip">Syncing with Kick Drum</span><span class="topic-chip">Dynamics (Soft vs. Loud)</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M1 · W4</span><span class="lesson-title">Drums: Hi-Hat Variations & Simple Fills</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Hi-Hat Patterns 8th & 16th Notes</span><span class="topic-chip">Open Hi-Hat</span><span class="topic-chip">Simple Fills</span><span class="topic-chip">3/4 Waltz Time</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 5 ══ -->
+      <div class="week-group" data-week="5">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 5</span>
+          <span class="week-group-title">Nashville Number System & Chord Progressions</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">July 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Nashville Number System & Chord Progressions</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Nashville Number System (1–7)</span><span class="topic-chip highlight">1-5-6m-4 Progression</span><span class="topic-chip">Transposition Intro</span><span class="topic-chip">Play in Multiple Keys</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Piano: Inversions, Slash Chords & Extensions</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Inversions (1st, 2nd, 3rd)</span><span class="topic-chip highlight">Slash Chords G/B, C/E</span><span class="topic-chip">Sus2 & Sus4</span><span class="topic-chip">Add9, Maj7, 6th</span><span class="topic-chip">Voice Leading</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Acoustic: Barre Chords & Fingerpicking</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">F Barre Chord (E Shape)</span><span class="topic-chip">Bm Barre Chord (A Shape)</span><span class="topic-chip">Fingerpicking Pattern (Thumb + 3 Fingers)</span><span class="topic-chip">Capo Introduction</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Electric: Lead Concepts & Effects Deep Dive</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Lead vs. Rhythm Guitar Role</span><span class="topic-chip">Pentatonic Runs</span><span class="topic-chip">Vibrato</span><span class="topic-chip">Overdrive, Distortion, Chorus, Delay, Reverb</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Bass: Groove Patterns & Drum Lock</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Locking with Kick Drum</span><span class="topic-chip">Root-3rd-5th Bass Lines</span><span class="topic-chip">Syncopation Basics</span><span class="topic-chip">Dynamic Control</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W5</span><span class="lesson-title">Drums: Fills, Crashes & Ride Grooves</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">4-Bar Fill Patterns</span><span class="topic-chip">Crash Cymbal Placement</span><span class="topic-chip">Ride Cymbal Grooves</span><span class="topic-chip">Half-Time Feel</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 6 ══ -->
+      <div class="week-group" data-week="6">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 6</span>
+          <span class="week-group-title">Song Structure, Hand Signals & Dynamics</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">July 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Song Structure, Hand Signals & Dynamics</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Song Parts: Intro/Verse/Chorus/Bridge/Outro</span><span class="topic-chip highlight">Band Hand Signals</span><span class="topic-chip">Dynamics</span><span class="topic-chip">Following Worship Leader</span><span class="topic-chip">Space & Silence</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Piano: Worship Pads, Sustain & Comping</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Worship Pads</span><span class="topic-chip">Sustain Pedal in Worship</span><span class="topic-chip">Comping (Supporting the Band)</span><span class="topic-chip">Not Overplaying</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Acoustic: Capo Positions & Supporting the Worship Leader</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Capo Positions & Effective Keys</span><span class="topic-chip">Supporting Worship Leader</span><span class="topic-chip">Comping vs. Full Strumming</span><span class="topic-chip">Hybrid Picking</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Electric: Ambient Fills, Swells & Knowing When to Rest</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Fills Between Vocal Phrases</span><span class="topic-chip">Ambient Swells (Volume Knob)</span><span class="topic-chip">Tremolo & Reverb for Atmosphere</span><span class="topic-chip">When NOT to Play</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Bass: Locking the Kick-Bass Unit & Worship Flow</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Bass & Kick Drum as a Unit</span><span class="topic-chip">Busy vs. Simple Lines</span><span class="topic-chip">Bass Fills at Transitions</span><span class="topic-chip">Adjusting to Worship Flow</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W6</span><span class="lesson-title">Drums: Dynamic Control & Intimate Worship Playing</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Brushes vs. Sticks vs. Rods</span><span class="topic-chip">Playing Quietly (pp) for Worship</span><span class="topic-chip">Building & Breaking Down Energy</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 7 ══ -->
+      <div class="week-group" data-week="7">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 7</span>
+          <span class="week-group-title">Transposition as a Band + Full Song Run</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">July 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W7</span><span class="lesson-title">Transposition as a Band + Full Song Run</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Transposition</span><span class="topic-chip">Why Keys Change in Worship</span><span class="topic-chip">Song in 2 Keys Together</span><span class="topic-chip">Hand Signal Practice</span><span class="topic-chip">Trainer Feedback per Instrument</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 8 ══ -->
+      <div class="week-group" data-week="8">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 8</span>
+          <span class="week-group-title">Technique Polish & Song 2 Intro</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">July 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Review & Introduce Song 2</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Review NNS, Hand Signals, Dynamics</span><span class="topic-chip">Introduce Song 2 to Full Band</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="piano">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--piano)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Piano: Play Songs 1 & 2 with Left Hand Bass</span><span class="tag piano">Piano</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Full Song 1 & 2 with LH Bass</span><span class="topic-chip">Respond to Hand Cues</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="acoustic">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--acoustic)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Acoustic: Capo Mastery & Full Song Play</span><span class="tag acoustic">Acoustic</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Capo Mastery Across Positions</span><span class="topic-chip highlight">Play Songs 1 & 2 Cleanly</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="electric">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--electric)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Electric: Lead Fills & Ambient Layers in Song Context</span><span class="tag electric">Electric</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Lead Fills & Ambient Layers</span><span class="topic-chip">In Context of Songs 1 & 2</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="bass">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--bass)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Bass: Locking Groove for Worship Songs</span><span class="tag bass">Bass</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Locking Groove for Worship</span><span class="topic-chip">Songs 1 & 2 Full Run</span></div></div>
+        </div>
+
+        <div class="lesson-block" data-track="drums">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--drums)"></div><div class="lesson-top-inner"><span class="lesson-week">M2 · W8</span><span class="lesson-title">Drums: Worship Sensitivity on Songs 1 & 2</span><span class="tag drums">Drums</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Dynamic Control</span><span class="topic-chip">Worship Sensitivity</span><span class="topic-chip">Songs 1 & 2</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 9 ══ -->
+      <div class="week-group" data-week="9">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 9</span>
+          <span class="week-group-title">Listening, Communication & Rehearsal Etiquette</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">August 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W9</span><span class="lesson-title">Listening, Band Communication & Rehearsal Etiquette</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">The Art of Listening in a Band</span><span class="topic-chip">Frequency Space / EQ</span><span class="topic-chip">Verbal & Non-Verbal Cues</span><span class="topic-chip">Rehearsal Etiquette</span><span class="topic-chip highlight">Worship Mindset vs. Performance Mindset</span><span class="topic-chip">Space & Silence as Musical Choices</span><span class="topic-chip">Spontaneous Worship Moments</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEKS 10–11 ══ -->
+      <div class="week-group" data-week="10">
+        <div class="week-group-header">
+          <span class="week-group-label">Weeks 10–11</span>
+          <span class="week-group-title">Full Band Rehearsals — 3 Songs</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">August 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W10–11</span><span class="lesson-title">Full Band Rehearsals (Songs 1, 2 & 3)</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Full Band Run-Throughs</span><span class="topic-chip">Breakdown by Section</span><span class="topic-chip">Trainer Feedback per Instrument</span><span class="topic-chip">Adjusting Mix & Balance</span><span class="topic-chip">Transitions & Key Changes</span><span class="topic-chip">Hand Signal Practice</span><span class="topic-chip">Re-running Problem Sections</span><span class="topic-chip highlight">Space & Silence Practice</span><span class="topic-chip">Personal Encouragement Time</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 12 ══ -->
+      <div class="week-group" data-week="12">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 12</span>
+          <span class="week-group-title">Final Polish & Sound Check Simulation</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">August 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W12</span><span class="lesson-title">Final Polish, Sound Check Simulation & Stagecraft</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Full Set Rehearsal (All 3 Songs)</span><span class="topic-chip">Sound Check Simulation</span><span class="topic-chip">In-Ear / Stage Monitor Basics</span><span class="topic-chip">Stagecraft & Posture</span><span class="topic-chip">Final Trainer Notes per Instrument</span><span class="topic-chip highlight">Preview of Performance Sunday</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 13 ══ -->
+      <div class="week-group" data-week="13">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 13</span>
+          <span class="week-group-title">✨ Special Number Performance</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">August 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W13</span><span class="lesson-title">✨ Special Number Performance — Live Worship</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Trainees Lead Worship Live</span><span class="topic-chip">Trainer Support Onstage</span><span class="topic-chip">Congregation Worships Together</span><span class="topic-chip">Post-Performance Debrief & Encouragement</span></div></div>
+        </div>
+      </div>
+
+      <!-- ══ WEEK 14 ══ -->
+      <div class="week-group" data-week="14">
+        <div class="week-group-header">
+          <span class="week-group-label">Week 14</span>
+          <span class="week-group-title">🕊️ Commissioning & Celebration</span>
+          <div class="week-group-line"></div>
+          <span class="week-group-month">August 2026</span>
+        </div>
+
+        <div class="lesson-block" data-track="joint">
+          <div class="lesson-top"><div class="lesson-color-bar" style="background:var(--joint)"></div><div class="lesson-top-inner"><span class="lesson-week">M3 · W14</span><span class="lesson-title">🕊️ Commissioning, Celebration & Handover</span><span class="tag joint">Joint</span></div></div>
+          <div class="lesson-body"><div class="topics-list"><span class="topic-chip highlight">Certificate of Completion</span><span class="topic-chip">Commissioning Prayer</span><span class="topic-chip">Testimonies & Sharing</span><span class="topic-chip">Worship Team Handover</span><span class="topic-chip">Celebration & Fellowship</span><span class="topic-chip">Next Steps for Continued Growth</span></div></div>
+        </div>
+      </div>
+
+    </div><!-- /filter-lessons-container -->
   </div>
 </div>
 
@@ -1279,7 +1603,6 @@
 <!-- ════════════════════════ ASSESSMENT ════════════════════════ -->
 <div id="assessment" class="section">
 
-  <!-- DARK: Registration -->
   <div class="panel-dark">
     <h2 class="page-title" style="color:#fff;">Assessment Framework</h2>
     <p class="page-desc">How we track, measure, and celebrate growth throughout the 3-month program.</p>
@@ -1309,7 +1632,6 @@
 
   <hr class="divider">
 
-  <!-- LIGHT: Monthly Checkpoints -->
   <div class="panel-light">
     <div class="sec-heading"><h2>Monthly Progress Checkpoints</h2><p>End of each month — trainers assess growth</p></div>
     <div class="assess-grid">
@@ -1324,7 +1646,6 @@
 
   <hr class="divider">
 
-  <!-- DARK: Final Assessment -->
   <div class="panel-dark">
     <div class="sec-heading"><h2>Take-Home Self-Assessment</h2><p>Distributed at the end of each Sunday session</p></div>
     <div class="callout">Each handout includes a short <strong>self-assessment section</strong>: (1) What I learned today, (2) What I still need to practice, (3) My confidence level this week (1–5), (4) One thing I want to bring to God through my playing. Optional to submit back but encouraged for trainer review.</div>
@@ -1357,17 +1678,6 @@
 </div>
 
 <script>
-// Auto-assign data-track to schedule lesson blocks that don't have one yet
-document.querySelectorAll('.lesson-block:not([data-track])').forEach(block => {
-  const tag = block.querySelector('.tag');
-  if (tag) {
-    const tracks = ['joint','piano','acoustic','electric','bass','drums'];
-    for (const t of tracks) {
-      if (tag.classList.contains(t)) { block.setAttribute('data-track', t); break; }
-    }
-  }
-});
-
 function showSection(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
@@ -1377,17 +1687,26 @@ function showSection(id, btn) {
 }
 
 function filterLessons(track, btn) {
+  // Reset all filter buttons
   document.querySelectorAll('.filter-btn').forEach(b => {
     b.classList.remove('active', 'all', 'joint', 'piano', 'acoustic', 'electric', 'bass', 'drums');
   });
   btn.classList.add('active', track);
+
+  // Show/hide individual lesson blocks
   document.querySelectorAll('#filter-lessons-container .lesson-block').forEach(block => {
     const blockTrack = block.getAttribute('data-track');
-    if (track === 'all' || blockTrack === track || (track !== 'joint' && blockTrack === 'joint')) {
-      block.classList.remove('hidden');
-    } else {
-      block.classList.add('hidden');
-    }
+    const show = track === 'all'
+      || blockTrack === track
+      || (track !== 'joint' && blockTrack === 'joint');
+    block.classList.toggle('hidden', !show);
+  });
+
+  // Show/hide week-group wrappers — hide a group only if ALL its blocks are hidden
+  document.querySelectorAll('#filter-lessons-container .week-group').forEach(group => {
+    const blocks = group.querySelectorAll('.lesson-block');
+    const anyVisible = Array.from(blocks).some(b => !b.classList.contains('hidden'));
+    group.style.display = anyVisible ? '' : 'none';
   });
 }
 </script>
